@@ -39,6 +39,7 @@ public class Account {
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<BorrowingHistory> borrowingHistoryList;
 
