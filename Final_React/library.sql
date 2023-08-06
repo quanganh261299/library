@@ -45,19 +45,19 @@ CREATE TABLE `borrowing_history`(
 insert into book (id,	 title						,  author					, category				,  publication_date		,  price	,  status) 
 values 			 (1,	'Legend Of Sleepy Hollow'	, 'Nealson Leyland'			, 'Self-help'			, '1999/04/19'			, 650264	, 'AVAILABLE'	),
 				 (2, 	'Grease'					, 'Helsa Ajean'				, 'Science Fiction'		, '2015/5/2'			, 128664	, 'AVAILABLE'	),
-				 (3, 	'Kirikou and the Sorceress' , 'Dennis'					, 'Youopia'				, '2008/04/12'			, 358273	, 'UNAVAILABLE'	),
-				 (4, 	'PerAVAILABLEect Blue'		, 'Adria Danilevich'		, 'Photolist'			, '2006/9/17'			, 120056	, 'UNAVAILABLE'	),
-				 (5, 	'Running AVAILABLEree'		, 'Elicia Barrick'			, 'Innoja'				, '1993/6/13'			, 372164	, 'AVAILABLE'	),
-				 (6, 	'Paradox'					, 'Hannis Grinnell'			, 'Dynava'				, '2020/6/3'			, 506398	, 'AVAILABLE'	),
-				 (7, 	'Late Phases'				, 'Jean Clevance'			, 'Yozio'				, '2015/6/13'			, 688503	, 'UNAVAILABLE'	),
-				 (8, 	'Divide and Conquer' 		, 'Rebe Doret'				, 'Skyble'				, '2013/10/6'			, 500594	, 'UNAVAILABLE'	),
-				 (9, 	'Vesku' 					, 'Celeste Restorick'		, 'Trunyx'				, '2008/6/20'			, 228176	, 'AVAILABLE'	),
-				 (10, 	'Rafemalepart'				, 'Adara Blurton'			, 'Pixonyx'				, '2006/8/22'			, 264490	, 'AVAILABLE'	),
-				 (11, 	'Aeon Malelux'				, 'Robinetta Haskew'		, 'Tazz'				, '2017/10/13'			, 446738	, 'AVAILABLE'	),
-				 (12, 	'Rocket'					, 'Sidonia Zavittieri'		, 'Thought'				, '1992/5/15'			, 583234	, 'UNAVAILABLE'	),
-				 (13, 	'The Water Diviner'			, 'Bradney Figgess'			, 'TopiczooUNAVAILABLE'	, '2000/4/23'			, 92780		, 'UNAVAILABLE'	),
-				 (14, 	'P.U.N.K.S'					, 'Giralda'					, 'Aivee'				, '2012/8/1'			, 244982	, 'AVAILABLE'	),
-				 (15, 	'The Arrival'				, 'Lynn de Najera'			, 'AVAILABLEanoodle'	, '2019/2/3'			, 732808	, 'UNAVAILABLE'	);
+				 (3, 	'Kirikou and the Sorceress' , 'Dennis'					, 'Self-help'			, '2008/04/12'			, 358273	, 'UNAVAILABLE'	),
+				 (4, 	'PerAVAILABLEect Blue'		, 'Adria Danilevich'		, 'Science Fiction'		, '2006/9/17'			, 120056	, 'UNAVAILABLE'	),
+				 (5, 	'Running AVAILABLEree'		, 'Elicia Barrick'			, 'Self-help'			, '1993/6/13'			, 372164	, 'AVAILABLE'	),
+				 (6, 	'Paradox'					, 'Hannis Grinnell'			, 'Science Fiction'		, '2020/6/3'			, 506398	, 'AVAILABLE'	),
+				 (7, 	'Late Phases'				, 'Jean Clevance'			, 'Mystery'				, '2015/6/13'			, 688503	, 'UNAVAILABLE'	),
+				 (8, 	'Divide and Conquer' 		, 'Rebe Doret'				, 'Mystery'				, '2013/10/6'			, 500594	, 'UNAVAILABLE'	),
+				 (9, 	'Vesku' 					, 'Celeste Restorick'		, 'Mystery'				, '2008/6/20'			, 228176	, 'AVAILABLE'	),
+				 (10, 	'Rafemalepart'				, 'Adara Blurton'			, 'Science Fiction'		, '2006/8/22'			, 264490	, 'AVAILABLE'	),
+				 (11, 	'Aeon Malelux'				, 'Robinetta Haskew'		, 'Romance'				, '2017/10/13'			, 446738	, 'AVAILABLE'	),
+				 (12, 	'Rocket'					, 'Sidonia Zavittieri'		, 'Self-help'			, '1992/5/15'			, 583234	, 'UNAVAILABLE'	),
+				 (13, 	'The Water Diviner'			, 'Bradney Figgess'			, 'Mystery'				, '2000/4/23'			, 92780		, 'UNAVAILABLE'	),
+				 (14, 	'P.U.N.K.S'					, 'Giralda'					, 'Romance'				, '2012/8/1'			, 244982	, 'AVAILABLE'	),
+				 (15, 	'The Arrival'				, 'Lynn de Najera'			, 'Romance'				, '2019/2/3'			, 732808	, 'UNAVAILABLE'	);
 
 -- Add data Account
  insert into account (id, 	username		,  email							, password			, 	first_name		, last_name		,  role			) 
