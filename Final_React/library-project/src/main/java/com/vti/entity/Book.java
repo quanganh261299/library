@@ -42,6 +42,7 @@ public class Book {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private List<BorrowingHistory> borrowingHistoryList;
 
