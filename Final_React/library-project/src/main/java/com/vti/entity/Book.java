@@ -1,5 +1,6 @@
 package com.vti.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,8 +26,8 @@ public class Book {
     @Column(name = "author", length = 50, nullable = false)
     private String author;
 
-    @Column(name = "publisher", length = 50, nullable = false)
-    private String publisher;
+    @Column(name = "category", length = 50, nullable = false)
+    private String category;
 
     @Column(name = "publication_date", length = 50, nullable = false)
     private LocalDate publicationDate;
