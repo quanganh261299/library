@@ -14,7 +14,7 @@ CREATE TABLE book (
     category 		VARCHAR(50) NOT NULL,
     `description` 	TEXT,
     created_at 		TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    `status` 		ENUM('AVAILABLE', 'BORROWED') NOT NULL DEFAULT 'AVAILABLE'
+    `status` 		BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 
@@ -37,7 +37,7 @@ CREATE TABLE `borrowing_history`(
 	id		 		INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     account_id 		INT UNSIGNED,
     book_id     	INT UNSIGNED UNIQUE KEY,
-    borrow_date 	DATE NOT NULL,
+	borrow_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     return_date		DATE,
     FOREIGN KEY(account_id) REFERENCES `account`(id) ON DELETE SET NULL,
     FOREIGN KEY(book_id) REFERENCES `book`(id) ON DELETE SET NULL
@@ -45,26 +45,26 @@ CREATE TABLE `borrowing_history`(
 
 -- Add data Book
  insert into book 	 (id, title						, author				, category			, description											, 	status) 
-	 values 		 (1, 'Cult of the Cobra'		, 'Sauncho Huyton'		, 'Horror'			, 'Cuộc phiêu lưu hấp dẫn trong kỳ nghỉ hè.'			, 	'AVAILABLE') ,
-					 (2, 'Amish Grace'				, 'Glenden Brager'		, 'Drama'			, 'Tình yêu đẹp ngọt ngào nở hoa dưới ánh mặt trời.'	, 	'AVAILABLE') ,
-					 (3, 'Two Cents Worth of Hope'	, 'Viole Kinnier'		, 'Comedy'			, 'Hành trình khám phá vũ trụ bí ẩn'					, 	'AVAILABLE') ,
-					 (4, 'Echoes of the Rainbow'    , 'Ingaborg Lurner'		, 'Comedy'			, 'Hồi hộp theo dấu vết trong cuộc truy đuổi nguy hiểm.', 	'AVAILABLE') ,
-					 (5, 'All I Desire'				, 'Horst Tomet'			, 'Drama'			, 'Khoảnh khắc sâu lắng suy tư về cuộc sống.'			, 	'AVAILABLE') ,
-					 (6, 'Three Ages'				, 'Bobbi Kordt'			, 'Comedy'			, 'Góc nhìn mới về lịch sử quyến rũ.'					, 	'AVAILABLE') ,
-					 (7, 'Princess and the Warrior'	, 'Farly Olesen'		, 'Drama'			, 'Sức mạnh của tình bạn vượt qua mọi thử thách.'		, 	'AVAILABLE') ,
-					 (8, 'French Fried Vacation'	, 'Charlena Ackerman'	, 'Comedy'			, 'Đắm chìm trong thế giới huyền bí của cổ tích.'		, 	'AVAILABLE') ,
-					 (9, 'Koti-ikävä'				, 'Felike Chadney'		, 'Drama'			, 'Cuộc hành trình tìm kiếm ý nghĩa đích thực.'			, 	'AVAILABLE') ,
-					 (10, 'Vault of Horror'			, 'Dulce Cady'			, 'Horror'			, 'Bí mật kinh hoàng đằng sau vẻ ngoài hoàn hảo.'		,	'AVAILABLE') ,
-					 (11, 'Boys on the Side'		, 'Berke Motten'		, 'Comedy'			, 'Hương vị của niềm hy vọng và sự tự do.'				, 	'AVAILABLE') ,
-					 (12, 'Magician, The (Ansiktet)', 'Armin Braithwaite'	, 'Drama'			, 'Cuộc đối đầu gay cấn giữa ác quỷ và thiên thần.'		, 	'AVAILABLE') ,
-					 (13, 'Act of Valor'			, 'Ingram O''Feeny'		, 'Action'			, 'Nghịch lý cuộc sống qua góc nhìn sâu sắc.'			, 	'AVAILABLE') ,
-					 (14, 'Wizard of Oz, The'		, 'Marsha Greenstock'	, 'Adventure'		, 'Vũ điệu đẹp như mơ trong ánh đèn lung linh.'			, 	'AVAILABLE') ,
-					 (15, 'Young Again'				, 'Elsbeth Sherringham'	, 'Fantasy'			, 'Nụ cười tỏa sáng giữa bão táp cuộc đời.'				, 	'AVAILABLE') ,
-					 (16, 'Man Who Love'			, 'Brooke Rodd'			, 'Western'			, 'Bức tranh tình yêu mãnh liệt và chân thành.'			, 	'AVAILABLE') ,
-					 (17, 'Coming Home (Gui lai)'	, 'Ulric Eldritt'		, 'Drama'			, 'Cuộc chiến tưởng chừng không thể thắng.'				, 	'AVAILABLE') ,
-					 (18, 'Unknown'					, 'Collete Colegate'	, 'Drama'			, 'Hành trình trở thành phiên bản tốt hơn của bản thân'	, 	'AVAILABLE') ,
-					 (19, 'Possession'				, 'Chiquita Pole'		, 'Drama'			, 'Đam mê nghệ thuật biến thành sức sống.'				, 	'AVAILABLE') ,
-					 (20, 'Malice in Wonderland'	, 'Horatia Russilll'	, 'Drama'			, 'Cuộc sống nhỏ bé chứa đựng nhiều điều kỳ diệu.'		, 	'AVAILABLE');
+	 values 		 (1, 'Cult of the Cobra'		, 'Sauncho Huyton'		, 'Horror'			, 'Cuộc phiêu lưu hấp dẫn trong kỳ nghỉ hè.'			, 	true) ,
+					 (2, 'Amish Grace'				, 'Glenden Brager'		, 'Drama'			, 'Tình yêu đẹp ngọt ngào nở hoa dưới ánh mặt trời.'	, 	true) ,
+					 (3, 'Two Cents Worth of Hope'	, 'Viole Kinnier'		, 'Comedy'			, 'Hành trình khám phá vũ trụ bí ẩn'					, 	true) ,
+					 (4, 'Echoes of the Rainbow'    , 'Ingaborg Lurner'		, 'Comedy'			, 'Hồi hộp theo dấu vết trong cuộc truy đuổi nguy hiểm.', 	true) ,
+					 (5, 'All I Desire'				, 'Horst Tomet'			, 'Drama'			, 'Khoảnh khắc sâu lắng suy tư về cuộc sống.'			, 	true) ,
+					 (6, 'Three Ages'				, 'Bobbi Kordt'			, 'Comedy'			, 'Góc nhìn mới về lịch sử quyến rũ.'					, 	true) ,
+					 (7, 'Princess and the Warrior'	, 'Farly Olesen'		, 'Drama'			, 'Sức mạnh của tình bạn vượt qua mọi thử thách.'		, 	true) ,
+					 (8, 'French Fried Vacation'	, 'Charlena Ackerman'	, 'Comedy'			, 'Đắm chìm trong thế giới huyền bí của cổ tích.'		, 	true) ,
+					 (9, 'Koti-ikävä'				, 'Felike Chadney'		, 'Drama'			, 'Cuộc hành trình tìm kiếm ý nghĩa đích thực.'			, 	true) ,
+					 (10, 'Vault of Horror'			, 'Dulce Cady'			, 'Horror'			, 'Bí mật kinh hoàng đằng sau vẻ ngoài hoàn hảo.'		,	true) ,
+					 (11, 'Boys on the Side'		, 'Berke Motten'		, 'Comedy'			, 'Hương vị của niềm hy vọng và sự tự do.'				, 	true) ,
+					 (12, 'Magician, The (Ansiktet)', 'Armin Braithwaite'	, 'Drama'			, 'Cuộc đối đầu gay cấn giữa ác quỷ và thiên thần.'		, 	true) ,
+					 (13, 'Act of Valor'			, 'Ingram O''Feeny'		, 'Action'			, 'Nghịch lý cuộc sống qua góc nhìn sâu sắc.'			, 	true) ,
+					 (14, 'Wizard of Oz, The'		, 'Marsha Greenstock'	, 'Adventure'		, 'Vũ điệu đẹp như mơ trong ánh đèn lung linh.'			, 	true) ,
+					 (15, 'Young Again'				, 'Elsbeth Sherringham'	, 'Fantasy'			, 'Nụ cười tỏa sáng giữa bão táp cuộc đời.'				, 	true) ,
+					 (16, 'Man Who Love'			, 'Brooke Rodd'			, 'Western'			, 'Bức tranh tình yêu mãnh liệt và chân thành.'			, 	true) ,
+					 (17, 'Coming Home (Gui lai)'	, 'Ulric Eldritt'		, 'Drama'			, 'Cuộc chiến tưởng chừng không thể thắng.'				, 	true) ,
+					 (18, 'Unknown'					, 'Collete Colegate'	, 'Drama'			, 'Hành trình trở thành phiên bản tốt hơn của bản thân'	, 	true) ,
+					 (19, 'Possession'				, 'Chiquita Pole'		, 'Drama'			, 'Đam mê nghệ thuật biến thành sức sống.'				, 	true) ,
+					 (20, 'Malice in Wonderland'	, 'Horatia Russilll'	, 'Drama'			, 'Cuộc sống nhỏ bé chứa đựng nhiều điều kỳ diệu.'		, 	true);
 
 -- Add data Account
  insert into account (id, 	username		,  email							, password			, 	first_name		, last_name		,  role			) 
@@ -94,5 +94,5 @@ CREATE TABLE `borrowing_history`(
 								 (10	, 2			, 3			, '2022-05-17', '2023-02-11');
 
 UPDATE book
-SET status = 'BORROWED'
+SET status = false
 WHERE id IN (SELECT book_id FROM borrowing_history);
