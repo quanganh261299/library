@@ -52,17 +52,21 @@ public class SecurityConfiguration {
         return http
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
                         .requestMatchers("/api/v1/auth/register", "/api/v1/auth/login",
-                                "/api/v1/password/forgot-password", "/api/v1/password/reset-password",
                                 "/swagger-ui/**", "/swagger-resources/**", "/v3/api-docs/**"
                         )
                         .permitAll()
-                        .requestMatchers(HttpMethod.DELETE)
+                        .requestMatchers(HttpMethod.GET, "/api/v1/books/**")
+                        .permitAll()
+                        .requestMatchers("/api/v1/books/**")
                         .hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/api/v1/departments/**", "/api/v1/accounts/**",
-                                "/api/v1/email/**")
-                        .hasAnyAuthority("ADMIN", "MANAGER")
-                        .requestMatchers(HttpMethod.PUT, "/api/v1/departments/**", "/api/v1/accounts/**")
-                        .hasAnyAuthority("ADMIN", "MANAGER")
+                        .requestMatchers(HttpMethod.GET,"/api/v1/borrow/**")
+                        .hasAnyAuthority("ADMIN", "NORMAL_USER")
+                        .requestMatchers(HttpMethod.POST, "/api/v1/borrow/**")
+                        .hasAnyAuthority("ADMIN", "NORMAL_USER")
+                        .requestMatchers("/api/v1/borrow/**")
+                        .hasAuthority("ADMIN")
+                        .requestMatchers("/api/v1/accounts/**")
+                        .hasAuthority("ADMIN")
                         .anyRequest()
                         .authenticated()
                 )
